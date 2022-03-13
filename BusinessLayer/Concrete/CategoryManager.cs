@@ -23,5 +23,6 @@ namespace BusinessLayer.Concrete
         {
             return _categoryDal.List();
         }
+
     }
 }
