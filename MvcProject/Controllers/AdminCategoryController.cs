@@ -43,5 +43,23 @@ namespace MvcProject.Controllers
             }
             return View();
         }
+        public ActionResult DeleteCategory(int id)
+        {
+            var categoryValue = cm.GetById(id);
+            cm.CategoryDelete(categoryValue);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryValue = cm.GetById(id);
+            return View(categoryValue);
+        }
+        [HttpPost]
+        public ActionResult EditCategory(Category category)
+        {
+            cm.CategoryUpdate(category);
+            return RedirectToAction("Index");
+        }
     }
 }
