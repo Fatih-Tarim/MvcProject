@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-@{ 
+@{
+    string status = "";
     string color = "";
-
-
+    string status_text = "";
 }
 <!DOCTYPE html>
 <html>
@@ -43,8 +43,11 @@
                             <th style="width: 20%">
                                 Başlık Adı
                             </th>
-                            <th style="width: 30%">
+                            <th style="width: 15%">
                                 Oluşturan Yazar
+                            </th>
+                            <th style="width: 10%">
+                                Durum
                             </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
@@ -76,6 +79,20 @@
                             {
                                 color = "badge badge-dark";
                             }
+                            switch (@item.HeadingStatus)
+                            {
+                                case true:
+                                    status = "badge badge-success";
+                                    status_text = "Aktif";
+                                    break;
+                                case false:
+                                    status = "badge badge-danger";
+                                    status_text = "Pasif";
+                                    break;
+                                default:
+                                    status = "";
+                                    break;
+                            }
                             <tr>
                                 <td>
                                     @item.HeadingId
@@ -97,6 +114,10 @@
                                         </li>
                                     </ul>
                                 </td>
+                                <td class="@status" style="margin-left: 10px; margin-top: 30px; ">
+                                    @*@item.HeadingStatus*@
+                                    <span>@status_text</span>
+                                </td>
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
@@ -111,7 +132,7 @@
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
+                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
                                         <i class="fas fa-trash">
                                         </i>
                                         Sil

@@ -11,9 +11,15 @@
 <div class="form-group container">
     @Html.Label("Başlık Id")
     @Html.TextBoxFor(x => x.HeadingId, new { @class = "form-control" }) <br />
+    @Html.Label("Başlık Adı")
+    @Html.TextBoxFor(x => x.HeadingName, new { @class = "form-control" }) <br />
+    @Html.Label("Başlık Tarihi")
+    @Html.TextBoxFor(x => x.HeadingDate, new { @class = "form-control" }) <br />
+    @Html.Label("Yazar id")
+    @Html.TextBoxFor(x => x.WriterId, new { @class = "form-control" }) <br />
     @Html.Label("Başlık Kategorisi")
-    @Html.DropDownListFor(x => x.HeadingName,(List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" }) <br />
-<button class="btn btn-success">Güncelle</button>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.vlc, new { @class = "form-control" }) <br />
+    <button class="btn btn-success">Güncelle</button>
 </div>
 }
 
