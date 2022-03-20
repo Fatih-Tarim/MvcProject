@@ -29,6 +29,9 @@ namespace MvcProject.Controllers
             abm.AboutAddBl(about);
             return RedirectToAction("Index");
         }
-
+        public PartialViewResult AboutPartial()
+        {
+            return PartialView();
+        }
     }
 }
