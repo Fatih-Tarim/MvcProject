@@ -29,12 +29,9 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3">
-                    <a href="mailbox.html" class="btn btn-primary btn-block mb-3">Back to Inbox</a>
-                    <!--ContactSidebar-->
-                    @Html.Partial("ContactSidebarPartial")
-                    <!--/ContactSidebar-->
-                </div>
+                <!--ContactSidebar-->
+                @Html.Action("MessageListMenu", "Contact")
+                <!--/ContactSidebar-->
                 <!-- /.col -->
                 <div class="col-md-9">
                     <div class="card card-primary card-outline">
@@ -48,9 +45,9 @@
                         <!-- /.card-header -->
                         <div class="card-body p-0">
                             <div class="mailbox-read-info">
-                                <h5>Konu: @Html.DisplayFor(x=>x.Subject)</h5>
+                                <h5>Konu: @Html.DisplayFor(x => x.Subject)</h5>
                                 <h6>
-                                    From: @Html.DisplayFor(x=>x.UserMail)
+                                    From: @Html.DisplayFor(x => x.UserMail)
                                     <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span>
                                 </h6>
                             </div>
@@ -74,12 +71,12 @@
                             </div>
                             <!-- /.mailbox-controls -->
                             <div class="mailbox-read-message">
-                                <p>@Html.DisplayFor(x=>x.Message)</p>
-                                
+                                <p>@Html.DisplayFor(x => x.Message)</p>
+
                             </div>
                             <!-- /.mailbox-read-message -->
                         </div>
-                        
+
                         <!-- /.card-footer -->
                     </div>
                     <!-- /.card -->
@@ -89,5 +86,6 @@
             <!-- /.row -->
         </div>
     </section>
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
 </body>
 </html>

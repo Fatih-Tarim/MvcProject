@@ -1,15 +1,13 @@
 ﻿@using EntityLayer.Concrete
-@model List<Contact>
+@model List<Message>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Inbox";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
 <html>
-
 <body class="hold-transition sidebar-mini">
-
     <!-- Content Wrapper. Contains page content -->
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -27,6 +25,7 @@
             <!-- Contact Sidebar-->
             @Html.Action("MessageListMenu", "Contact")
             <!-- /Contact Sidebar-->
+            <!-- /.card -->
             <!-- /.col -->
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
@@ -81,12 +80,12 @@
                                                 </div>
                                             </td>
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactId">@item.UserName</a></td>
+                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.MessageId">@item.SenderMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> @item.Message.Substring(0, 40)...
+                                                <b>@item.Subject</b> @item.MessageContent.Substring(0, 2)...
                                             </td>
                                             <td class="mailbox-attachment"></td>
-                                            <td class="mailbox-date">@item.</td>
+                                            <td class="mailbox-date">5 mins ago</td>
                                         </tr>
                                     }
                                 </tbody>
@@ -129,7 +128,8 @@
     </section>
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
 </body>
-<script>$(function () {
+<script>
+$(function () {
     //Enable check and uncheck all functionality
     $('.checkbox-toggle').click(function () {
       var clicks = $(this).data('clicks')

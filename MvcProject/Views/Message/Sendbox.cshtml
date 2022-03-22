@@ -1,9 +1,10 @@
 ﻿@using EntityLayer.Concrete
-@model List<Contact>
+@model List<Message>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sendbox";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -24,14 +25,16 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
+
             <!-- Contact Sidebar-->
             @Html.Action("MessageListMenu", "Contact")
             <!-- /Contact Sidebar-->
+            <!-- /.card -->
             <!-- /.col -->
             <div class="col-md-9">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
-                        <h3 class="card-title">Gelen Mesajlar</h3>
+                        <h3 class="card-title">Gönderilen Mesajlar</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" placeholder="Ara">
@@ -81,9 +84,9 @@
                                                 </div>
                                             </td>
                                             <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.ContactId">@item.UserName</a></td>
+                                            <td class="mailbox-name"><a href="/Contact/GetContactDetails/@item.MessageId">@item.ReceiverMail</a></td>
                                             <td class="mailbox-subject">
-                                                <b>@item.Subject</b> @item.Message.Substring(0, 40)...
+                                                <b>@item.Subject</b> @item.MessageContent.Substring(0, 3)...
                                             </td>
                                             <td class="mailbox-attachment"></td>
                                             <td class="mailbox-date">@item.</td>
@@ -129,7 +132,8 @@
     </section>
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
 </body>
-<script>$(function () {
+<script>
+$(function () {
     //Enable check and uncheck all functionality
     $('.checkbox-toggle').click(function () {
       var clicks = $(this).data('clicks')
@@ -166,3 +170,4 @@
     })
   })</script>
 </html>
+
