@@ -139,6 +139,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\ErrorPageController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HeadingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -309,6 +310,14 @@
     <Content Include="AdminLTE-3.0.4\error-404\img\bg.jpg" />
     <Content Include="AdminLTE-3.0.4\error-404\index.html" />
     <Content Include="AdminLTE-3.0.4\error-404\readme.txt" />
+    <Content Include="AdminLTE-3.0.4\images\2305612.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\a493c3d8b6fc3b3d54038db8715532d5 %281%29.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\a493c3d8b6fc3b3d54038db8715532d5.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\b39RjM.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\dd.jfif" />
+    <Content Include="AdminLTE-3.0.4\images\dddd0fb2cf43bd63ee808cce67b66d01.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\de9c7d329082fe696c80f3e6b3e9b9f8.jpg" />
+    <Content Include="AdminLTE-3.0.4\images\dffdf.jfif" />
     <Content Include="AdminLTE-3.0.4\index.html" />
     <Content Include="AdminLTE-3.0.4\index2.html" />
     <Content Include="AdminLTE-3.0.4\index3.html" />
@@ -2302,6 +2311,7 @@
     <Content Include="Views\Message\GetInboxMessageDetails.cshtml" />
     <Content Include="Views\Message\GetSendBoxMessageDetails.cshtml" />
     <Content Include="Views\ErrorPage\Page404.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
