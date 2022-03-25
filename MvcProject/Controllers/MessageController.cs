@@ -17,6 +17,7 @@ namespace MvcProject.Controllers
         ContactManager cm = new ContactManager(new EfContactDal());
         MessageValidator messageValidator = new MessageValidator();
         // GET: Message
+        [Authorize]
         public ActionResult Inbox()
         {
             var messageList = messageManager.GetListInbox();
