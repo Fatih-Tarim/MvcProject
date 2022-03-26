@@ -1,9 +1,10 @@
 ﻿@using EntityLayer.Concrete
 @model List<Heading>
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
+
 @{
     string status = "";
     string color = "";
@@ -127,12 +128,12 @@
                                         </i>
                                         Yazılar
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingId">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanel/EditHeading/@item.HeadingId">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         Düzenle
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="/Heading/DeleteHeading/@item.HeadingId">
+                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingId">
                                         <i class="fas fa-trash">
                                         </i>
                                         Sil
@@ -145,6 +146,7 @@
             </div>
         </div>
     </section>
-    <a href="/Heading/AddHeading" class="btn btn-primary">Başlık Ekle</a><br /><br />
+    <a href="/WriterPanel/NewHeading" class="btn btn-primary">Başlık Ekle</a><br /><br />
 </body>
 </html>
+
