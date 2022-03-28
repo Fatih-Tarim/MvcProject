@@ -15,5 +15,6 @@ namespace BusinessLayer.Abstract
         void ContentDelete(Content content);
         void ContentUpdate(Content content);
         List<Content> GetListByHeadingId(int id);
+        List<Content> GetListByWriter();
     }
 }
