@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -13,19 +14,22 @@ namespace MvcProject.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        Context context = new Context();
         public ActionResult WriterProfile()
         {
             return View();
         }
-        public ActionResult MyHeading()
-        {
-            //id = 4;
-            var values = hm.GetListByWriter();
+        public ActionResult MyHeading(string p)
+        {           
+            p = (string)Session["WriterMail"];
+            var writerIdInfo = context.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterId).FirstOrDefault();
+            var values = hm.GetListByWriter(writerIdInfo);
             return View(values);
         }
         [HttpGet]
         public ActionResult NewHeading()
         {
+            
             List<SelectListItem> valueCategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
@@ -39,8 +43,10 @@ namespace MvcProject.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading heading)
         {
+            string writermailinfo = (string)Session["WriterMail"];
+            var writerIdInfo = context.Writers.Where(x => x.WriterMail == writermailinfo).Select(y => y.WriterId).FirstOrDefault();
             heading.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            heading.WriterId = 4;
+            heading.WriterId = writerIdInfo;
             heading.HeadingStatus = true;
             hm.HeadingAddBl(heading);
             return RedirectToAction("MyHeading");
