@@ -40,8 +40,7 @@ namespace MvcProject.Controllers
         }
         public ActionResult ToDoList()
         {
-            return View();
-                
+            return View();        
         }
     }
 }
